@@ -1,3 +1,8 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 // Copyright © 2017 Zain Malik
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +19,9 @@
 
 package main
 
-import "github.com/zmalik/git-pif/cmd"
+import (
+	"github.com/sniperkit/snk.fork.git-pif/cmd"
+)
 
 func main() {
 	cmd.Execute()

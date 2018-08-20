@@ -1,7 +1,10 @@
+# Sniperkit-Bot
+# - Status: analyzed
+
 language: go
 go:
 - 1.9.x
-go_import_path: github.com/zmalik/git-pif
+go_import_path: github.com/sniperkit/snk.fork.git-pif
 before_install:
   - go get github.com/mattn/goveralls
 script:

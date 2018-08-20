@@ -1,17 +1,24 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package utils
 
 import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/google/go-github/github"
-	"github.com/tcnksm/go-gitconfig"
-	"github.com/zmalik/git-pif/config"
 	"net/url"
 	"regexp"
 	"strings"
 	"time"
+
+	"github.com/google/go-github/github"
 	"github.com/spf13/viper"
+	"github.com/tcnksm/go-gitconfig"
+
+	"github.com/sniperkit/snk.fork.git-pif/config"
 )
 
 const timeoutPolling = "GIT_PIF_TIMEOUT_POLLING"
@@ -77,7 +84,7 @@ func pollRepo(ctx context.Context, client *github.Client, owner, repo string) (b
 }
 func getTimeOutInMs() time.Duration {
 	polling := viper.Get(timeoutPolling)
-	if polling != nil{
+	if polling != nil {
 		duration, _ := time.ParseDuration(polling.(string))
 		if duration.Nanoseconds() > 0 {
 			return duration

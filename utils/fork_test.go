@@ -1,14 +1,21 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package utils
 
 import (
-	"testing"
-	. "github.com/smartystreets/goconvey/convey"
 	"context"
-	"github.com/zmalik/git-pif/config"
-	"gopkg.in/jarcoal/httpmock.v1"
 	"os"
-	"github.com/spf13/viper"
+	"testing"
 	"time"
+
+	. "github.com/smartystreets/goconvey/convey"
+	"github.com/spf13/viper"
+	"gopkg.in/jarcoal/httpmock.v1"
+
+	"github.com/sniperkit/snk.fork.git-pif/config"
 )
 
 func TestParseUpstreamURL(t *testing.T) {
@@ -117,7 +124,7 @@ func TestCreateFork(t *testing.T) {
 		httpmock.NewStringResponder(202, "{}"))
 	httpmock.RegisterResponder("GET", "https://api.github.com/user",
 		httpmock.NewStringResponder(200, "{\"login\":\"octagen\"}"))
-	httpmock.RegisterResponder("POST", "https://api.github.com/repos/zmalik/git-pif/forks",
+	httpmock.RegisterResponder("POST", "https://api.github.com/repos/sniperkit/snk.fork.git-pif/forks",
 		httpmock.NewStringResponder(202, "{}"))
 	viper.AutomaticEnv()
 	os.Setenv(config.ENV_GITHUB_VAR, "fakeToken")
@@ -163,12 +170,11 @@ func TestCreateFork(t *testing.T) {
 		httpmock.RegisterResponder("GET", "https://api.github.com/user",
 			httpmock.NewStringResponder(200, "{\"login\":\"octagen\"}"))
 
-
 	})
 
 	Convey("Create fork with error in fork call", t, func() {
 		setRepoGetReponse(404)
-		httpmock.RegisterResponder("POST", "https://api.github.com/repos/zmalik/git-pif/forks",
+		httpmock.RegisterResponder("POST", "https://api.github.com/repos/sniperkit/snk.fork.git-pif/forks",
 			httpmock.NewStringResponder(400, "{}"))
 		_, _, _, err := CreateFork()
 
@@ -177,7 +183,7 @@ func TestCreateFork(t *testing.T) {
 
 	Convey("Create fork and timeout will polling", t, func() {
 		setRepoGetReponse(404)
-		httpmock.RegisterResponder("POST", "https://api.github.com/repos/zmalik/git-pif/forks",
+		httpmock.RegisterResponder("POST", "https://api.github.com/repos/sniperkit/snk.fork.git-pif/forks",
 			httpmock.NewStringResponder(202, "{}"))
 		os.Setenv(timeoutPolling, "20ms")
 		viper.AutomaticEnv()

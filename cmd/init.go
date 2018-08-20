@@ -1,3 +1,8 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 // Copyright © 2017 Zain Malik
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,8 +21,10 @@ package cmd
 
 import (
 	"fmt"
+
 	"github.com/spf13/cobra"
-	"github.com/zmalik/git-pif/utils"
+
+	"github.com/sniperkit/snk.fork.git-pif/utils"
 )
 
 // initCmd represents the init command

@@ -1,10 +1,16 @@
+/*
+Sniperkit-Bot
+- Status: analyzed
+*/
+
 package config
 
 import (
-	"testing"
-	. "github.com/smartystreets/goconvey/convey"
 	"context"
 	"os"
+	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 	"github.com/spf13/viper"
 )
 
